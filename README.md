@@ -30,13 +30,21 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+    by using custom hooks we can build stateful class components, they allow us to write DRY code.
+
 2. Describe the different phases of the component lifecycle.
+  +Mounting phase, react creates component and adds to DOM. ComponentDidMount()
+  +Updating phase, when React needs to make a change to the component. ComponentDidUpdate()
+  +UnMounting phase, react removes component from DOM.: ComponentWillUnmount
 
 3. Demonstrate an understanding of class component lifecycle methods.
+  -The Mounting phase initalizes data inside the constructor, the Updating phase we can update our state with setState(), finally the UnMounting phase is called to clear DOM elements.
 
 4. Define stateful logic.
+  Any logic that is handled with state.
 
 5. Describe how to test a React component with React Testing Library.
+    Arrange our data, Act, query for our selector, &asserting our expected response
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -51,7 +59,7 @@ _This project uses a local server for the data fetching. You will need three sep
 3. _and one to run your tests_
 
 _Please follow the setup instructions closely so that you can get everything up and running smoothly_
-
+ 
 **Basic set up**
 
 - [ ] Create a forked copy of this project
