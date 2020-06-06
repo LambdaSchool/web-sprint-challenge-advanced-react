@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import { useForm } from "../hooks/useForm";
+
+
+
+// This form should be handled by a "useForm" custom hook
+// Build out the logic needed for a form custom hook (see the useForm.js file)
+// and replace the necessary stateful logic from CheckoutForm with the hook
 
 const initialValue = {
   firstName: "",
@@ -9,17 +16,11 @@ const initialValue = {
   zip: "",
 };
 
-// This form should be handled by a "useForm" custom hook
-// Build out the logic needed for a form custom hook (see the useForm.js file)
-// and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
+  const [values, handleChanges] = useForm(initialValue);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, setValues] = useState(initialValue);
 
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const CheckoutForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
-        <label>
+        <label htmlFor='firstName'>
           First Name:
           <input
             name="firstName"
@@ -38,7 +39,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label htmlFor='lasttName'>
           Last Name:
           <input
             name="lastName"
@@ -46,7 +47,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        <label>
+        <label htmlFor='lasttName'>
           Address:
           <input
             name="address"
@@ -72,7 +73,7 @@ const CheckoutForm = (props) => {
       {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
-            You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
+            You have ordered some plants! Woo-hoo! <span role="img" aria-label="party-hat">🎉</span>
           </p>
           <p>Your new green friends will be shipped to:</p>
           <br />
