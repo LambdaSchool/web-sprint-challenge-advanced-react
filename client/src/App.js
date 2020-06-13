@@ -6,6 +6,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import CheckoutForm from "./components/CheckoutForm";
 
 import "./App.css";
+import Lightbar from "./components/LightBar";
 
 function App() {
   // array of plants that have been added to the cart
@@ -23,8 +24,9 @@ function App() {
 
   return (
     <div>
+      <Lightbar/>
       <Router>
-        <nav className="container">
+        <nav  data-testid = "navs"className="container">
           <h1>
             React Plants <span role="img">🌿</span>
           </h1>
