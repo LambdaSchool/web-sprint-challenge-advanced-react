@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import  useForm from "../hooks/useForm";
 
 const initialValue = {
   firstName: "",
@@ -14,17 +15,34 @@ const initialValue = {
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, setValues] = useState(initialValue);
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // const [values, setValues] = useState(initialValue);
 
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+  // const handleChanges = (e) => {
+  //   setValues({ ...values, [e.target.name]: e.target.value });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccessMessage(true);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setShowSuccessMessage(true);
+  // };
+
+  //add showSuccessMessage to use form
+  //omg import useForm from the folder not from react
+  //set everything to a const and set it to use form
+  //are props needed in this? what happends if i take it out?
+  // why is it submitting but no data showing up????
+  
+
+ const [values, handleChanges, handleSubmit, showSuccessMessage ] = useForm(initialValue);
+
+//  const handleSubmit = (event) => {
+//   event.preventDefault()
+//   setShowSuccessMessage(true)
+// }
+
+//changing DIV Order to test better
+
 
   return (
     <>
@@ -66,12 +84,13 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button >Checkout</button>
       </form>
 
+      <div className="success-message" data-testid="successMessage">
       {showSuccessMessage && (
-        <div className="success-message" data-testid="successMessage">
-          <p>
+        <div>
+          <p >
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
           </p>
           <p>Your new green friends will be shipped to:</p>
@@ -84,8 +103,9 @@ const CheckoutForm = (props) => {
           <p>
             {values.city}, {values.state} {values.zip}
           </p>
-        </div>
+          </div>
       )}
+      </div>
     </>
   );
 };
