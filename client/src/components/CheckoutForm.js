@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from '../hooks/useForm'
 
 const initialValue = {
   firstName: "",
@@ -23,6 +24,7 @@ const CheckoutForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem("saveValues", JSON.stringify(values))
     setShowSuccessMessage(true);
   };
 
@@ -66,7 +68,7 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="checkout">Checkout</button>
       </form>
 
       {showSuccessMessage && (
