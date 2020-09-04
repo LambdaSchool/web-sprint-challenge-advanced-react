@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import useForm from '../hooks/useForm'
+
 
 const initialValue = {
   firstName: "",
@@ -8,23 +10,29 @@ const initialValue = {
   state: "",
   zip: "",
 };
+// const initalMessage = false; This was tyring to set the intialMessage for showSuccess to be faulse unless it handeled the submission suscessfully 
 
 // This form should be handled by a "useForm" custom hook
 // Build out the logic needed for a form custom hook (see the useForm.js file)
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, setValues] = useState(initialValue);
+  
+  //Transported Code to Custom HOOK 
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // const [values, setValues] = useState(initialValue);
 
-  const handleChanges = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+  // const handleChanges = (e) => {
+  //   setValues({ ...values, [e.target.name]: e.target.value });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccessMessage(true);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setShowSuccessMessage(true);
+  // };
+
+
+  const [showSuccessMessage, values, handleChanges, handleSubmit] = useForm(initialValue);
 
   return (
     <>
