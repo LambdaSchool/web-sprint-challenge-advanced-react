@@ -2,7 +2,7 @@
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️. During this sprint, you studied class components, the component lifecycle and class component lifecycle methods, custom hooks, and React Testing Library 🐙. In your challenge this week, you will demonstrate your mastery of these skills by creating an app that will fetch data from a local server using a class component, displaying that data, using a custom hook, and writing tests for your app.
+This challenge allos you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️. During this sprint, you studied class components, the component lifecycle and class component lifecycle methods, custom hooks, and React Testing Library 🐙. In your challenge this week, you will demonstrate your mastery of these skills by creating an app that will fetch data from a local server using a class component, displaying that data, using a custom hook, and writing tests for your app.
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
 
@@ -30,11 +30,18 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
-2. Describe the different phases of the component lifecycle.
+Stateful class components are nested components in the app that hold data.
 
+2. Describe the different phases of the component lifecycle.
+React lifestyle phases are 1) Birth/Mounting, 2) Growth/Updating, and 3) Death/Unmounting
 3. Demonstrate an understanding of class component lifecycle methods.
 
+1. birth/mounting is the beginning phase of building the component. Typically in this phase data is being accessed. The render method,and componentDidMount is invoked
+2.In the growth/updating phase setState can change data
+3.Death/unmounting phase is when componentWillUmount is called to clean up components that are removed from the app
 4. Define stateful logic.
+
+logic that us built into a component. Typically you can add things like a handleSubmit, or a handleChange function.
 
 5. Describe how to test a React component with React Testing Library.
 
