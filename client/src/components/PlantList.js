@@ -3,14 +3,32 @@ import axios from "axios";
 
 export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
-
+  state = {
+    plants: [],
+  };
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
 
+  componentDidMount() {
+    this.fetchPlants();
+  }
+
+  fetchPlants = () => {
+    fetch("http://localhost:3333/plants")
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          plants: res.plantsData,
+        });
+      });
+  };
+
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
-  render() {
+  render(props) {
+    //props
     return (
+      // <main className={props.darkMode ? "dark-mode-plant-list" : "plant-list"}>
       <main className="plant-list">
         {this.state?.plants?.map((plant) => (
           <div className="plant-card" key={plant.id}>
