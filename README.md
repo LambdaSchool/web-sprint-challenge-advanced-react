@@ -2,6 +2,7 @@
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
+
 This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️. During this sprint, you studied class components, the component lifecycle and class component lifecycle methods, custom hooks, and React Testing Library 🐙. In your challenge this week, you will demonstrate your mastery of these skills by creating an app that will fetch data from a local server using a class component, displaying that data, using a custom hook, and writing tests for your app.
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
@@ -29,14 +30,19 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
+  Not sure I understand the question. Are you asking for the syntax? It's just like a functional component but the syntax is different. for example you set the stat by doing something like: state = {plant: []}
 
 2. Describe the different phases of the component lifecycle.
+[Mounting, Updating, Unmounting] => [Birth, Growth, Death]
 
 3. Demonstrate an understanding of class component lifecycle methods.
+Want something to happen right before a componet mounts? Use ComponentWillMount. Want something to happen right after a componentMounts? Use ComponentDidMount.
 
-4. Define stateful logic.
+4. Define stateful logic. 
+Any code that uses state, but in the case of hooks I would define it as a behaviour created with the use of one or more hooks. 
 
 5. Describe how to test a React component with React Testing Library.
+You create a file [compenentName].test.js, and then write tests in it for that component.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

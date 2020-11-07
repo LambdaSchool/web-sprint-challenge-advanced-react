@@ -2,17 +2,33 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class PlantList extends Component {
-  // add state with a property called "plants" - initialize as an empty array
-
-  // when the component mounts:
-  //   - fetch data from the server endpoint - http://localhost:3333/plants
-  //   - set the returned plants array to this.state.plants
-
-  /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
+  constructor(props) {
+    super(props);
+    this.state = {
+        plants: [],
+        search: '',
+    };
+}
+  componentWillMount(){
+    axios.get('http://localhost:3333/plants').then((response)=>{
+      this.setState({plants: response.data.plantsData})
+      console.log(response.data.plantsData);
+    })
+  }
+  handleSearchChange = (e) =>{
+    this.setState({search: e.target.value})
+  }
+  // componentDidUpdate(prevProps, prevState){
+  //   if(prevState.search !== this.state.search){
+  //     this.handleSearchChange(e);
+  //   }
+  // }
   render() {
     return (
       <main className="plant-list">
-        {this.state?.plants?.map((plant) => (
+        <input value = {this.state.search} onChange = {this.handleSearchChange} type='text' placeholder = 'search . . .'></input>
+        {console.log(this.state.plants)}
+        {this.state?.plants?.filter(a => a.name.toLowerCase().includes(this.state.search.toLowerCase())).map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
             <div className="plant-details">
