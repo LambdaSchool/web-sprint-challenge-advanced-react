@@ -1,5 +1,5 @@
-import React from "react";
-import useForm from "../hooks/useForm"
+import React, { useState } from "react";
+
 const initialValue = {
   firstName: "",
   lastName: "",
@@ -13,20 +13,18 @@ const initialValue = {
 // Build out the logic needed for a form custom hook (see the useForm.js file)
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
-const  CheckoutForm = (props) => {
-  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  // const [values, setValues] = useState(initialValue);
+const CheckoutForm = (props) => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [values, setValues] = useState(initialValue);
 
-  // const handleChanges = (e) => {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  // };
+  const handleChanges = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setShowSuccessMessage(true);
-  // };
-  const [showSuccessMessage,values,valuesStorage,handleChanges,handleSubmit]
-    = useForm("whoOrdered",initialValue)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowSuccessMessage(true);
+  };
 
   return (
     <>
@@ -68,7 +66,7 @@ const  CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button name="Checkout">Checkout</button>
+        <button>Checkout</button>
       </form>
 
       {showSuccessMessage && (
@@ -86,18 +84,7 @@ const  CheckoutForm = (props) => {
           <p>
             {values.city}, {values.state} {values.zip}
           </p>
-          <p>
-            And this is from the Local Storage for future Logout Login Guest Customer Buys
-          </p>
-          <p>
-            {valuesStorage.firstName} {valuesStorage.lastName}
-          </p>
-          <p>{valuesStorage.address}</p>
-          <p>
-            {valuesStorage.city}, {valuesStorage.state} {valuesStorage.zip}
-          </p>
         </div>
-        
       )}
     </>
   );

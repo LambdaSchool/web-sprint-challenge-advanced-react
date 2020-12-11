@@ -28,15 +28,34 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. Explain how to build stateful class components.
+1 Explain how to build stateful class components.
 
-2. Describe the different phases of the component lifecycle.
+The class component must be an export default which is extending React.component written as follows and using at least the constructor(props) (where state is initalized), componentDidMount, componentDidUpdate, and render(){ return(any jsx within brackets) } 
 
-3. Demonstrate an understanding of class component lifecycle methods.
+As an expert reminder, always remeber to hand props down threw the constructor and refer to props state within the constructor while initalizing or else it may not work as intended while prop drilling for the constructors state. 
 
-4. Define stateful logic.
+2 Describe the different phases of the component lifecycle.
 
-5. Describe how to test a React component with React Testing Library.
+The main phases are as follows within order 
+  1 Mounting 
+  2 Updating
+  3 Unmounting
+
+3 Demonstrate an understanding of class component lifecycle methods.
+
+  1 The component will first call the constructor which will get the dirived state from the class component
+  2 The component renders
+  3 componentDidMount is ran where it is mounted. Any network request where data is loaded will be good to set here with state. However it will trigger an additional render and it is guraenteed the user will not see the inital state because of this trigger. 
+  4 Now comes the update phase where componentDidUpdate is ran. This is where we can get our prevProps, prevState, and Snapshot parameters from. This great because it can be used similar to a useEffect hook so be aware of infinite loops here. 
+  5 Once the component is updated the componentWillUnmount is called in the unmount phase. This is where all cleanup is done. If any dangling null pointers need to be trashed or deleted this is done here and is great for memory cleanup. 
+
+4 Define stateful logic.
+
+  Stateful logic is best done threw key value pairs where the key becomes the name to search by for the value. However stateful logic still can consist of just a string, number, array, object, or even jsx. With stateful logic we can achieve prop drilling principles to send or recieve information to or from a component. Its also great to use in hooks where useState hooks can consist of returned data from other parts of the application such as localStorage. Without stateful logic we could never have a state for components and prop drilling principles would be very difficult to achieve. 
+
+5 Describe how to test a React component with React Testing Library.
+
+  With jest testing the principles are very similar to cypress. We just their documentation to see if information is within the document or is not within the document. This also allows us to see if our application really functions how we think it is functioning.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
