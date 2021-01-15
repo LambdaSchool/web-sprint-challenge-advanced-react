@@ -1,6 +1,6 @@
 # Sprint Challenge: Advanced React - React Plants 🌿
 
-**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
+\*_Read these instructions carefully. Understand exactly what is expected *before* starting this Sprint Challenge._
 
 This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️. During this sprint, you studied class components, the component lifecycle and class component lifecycle methods, custom hooks, and React Testing Library 🐙. In your challenge this week, you will demonstrate your mastery of these skills by creating an app that will fetch data from a local server using a class component, displaying that data, using a custom hook, and writing tests for your app.
 
@@ -8,7 +8,7 @@ This is an individual assessment. All work must be your own. Your challenge scor
 
 You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your TL if you need direction.
 
-_You have **three hours** to complete this challenge. Plan your time accordingly._
+_You have \**three hours*to complete this challenge. Plan your time accordingly._
 
 ## Introduction
 
