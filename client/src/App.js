@@ -8,6 +8,8 @@ import CheckoutForm from "./components/CheckoutForm";
 
 import "./App.css";
 
+
+
 function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
@@ -35,6 +37,7 @@ function App() {
         <nav className="container">
           <h1>
             React Plants <span role="img">🌿</span>
+            Test
           </h1>
           <ul className="steps">
             <li>
