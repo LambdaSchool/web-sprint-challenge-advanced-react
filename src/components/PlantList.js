@@ -1,13 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
 
-export default class PlantList extends Component {
-  // add state with a property called "plants" - initialize as an empty array
-
-  // when the component mounts:
-  //   - fetch data from the server endpoint - http://localhost:3333/plants
-  //   - set the returned plants array to this.state.plants
-
+export default class PlantList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      plants: []
+    }
+  }
+componentDidMount(){
+  axios.get('http://localhost:3333/plants') 
+  .then(response => {this.setState({
+    ...this.state,
+    plants: response.data
+  })})
+}
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   componentDidMount() {
     axios.get('http://localhost:3333/plants')
@@ -33,8 +40,7 @@ export default class PlantList extends Component {
               </div>
               <button
                 className="plant-button"
-                onClick={() => this.props.addToCart(plant)}
-              >
+                onClick={() => this.props.addToCart(plant)}>
                 Add to cart
               </button>
             </div>
