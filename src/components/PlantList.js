@@ -1,20 +1,42 @@
+// import React, { Component } from "react";
+// import axios from "axios";
+//
+// export default class PlantList extends Component {
+//   // add state with a property called "plants" - initialize as an empty array
+//
+//   // when the component mounts:
+//   //   - fetch data from the server endpoint - http://localhost:3333/plants
+//   //   - set the returned plants array to this.state.plants
+//
+//   componentDidMount() {
+//     axios.get("http://localhost:3333/plants").then((res) => {
+//       console.log(res);
+//     });
+//   }
+
+//-----------------------------------------------------------------------------------------------------------
 import React, { Component } from "react";
 import axios from "axios";
 
 export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
 
-  // when the component mounts:
-  //   - fetch data from the server endpoint - http://localhost:3333/plants
-  //   - set the returned plants array to this.state.plants
-
-  /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   componentDidMount() {
-    axios.get('http://localhost:3333/plants')
-      .then(res => {
-        console.log(res);
+    //Callend upon component mounting...
+    //Setting state here will trigger re - rendering.
+    console.log("component did mount()");
+    axios
+      .get("http://localhost:3333/plants")
+      .then((response) => {
+        console.log("Initial Data Value From Axios Request", response.data);
+        this.setState((prevState) => ({ ...prevState, plants: response.data }));
+      })
+      .catch((error) => {
+        console.log("API CAlL ERROR FROM COMPONENT DIO MOUNT", error);
       });
   }
+
+  /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
 
   render() {
     return (
@@ -27,9 +49,9 @@ export default class PlantList extends Component {
               <p className="plant-scientific-name">{plant.scientificName}</p>
               <p>{plant.description}</p>
               <div className="plant-bottom-row">
-                <p>${plant.price}</p>
-                <p>☀️ {plant.light}</p>
-                <p>💦 {plant.watering}x/month</p>
+                <p>{plant.price}</p>
+                <p> {plant.light}</p>
+                <p> {plant.watering}x/month</p>
               </div>
               <button
                 className="plant-button"

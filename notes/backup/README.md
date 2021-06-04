@@ -1,22 +1,16 @@
 # Sprint Challenge: Advanced React - React Plants 🌿
 
-![demo](./public/images/demo.gif)
-
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️.
+This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored some advanced React topics ⚛️. During this sprint, you studied **class components**, **the component lifecycle** and **class component lifecycle methods,** **custom hooks**, and **React Testing Library 🐙.**
 
-During this sprint, you studied:
+In your challenge this week, you will demonstrate your mastery of these skills by creating an app that will fetch data from an internal server using a `class component`, displaying that data, using a `custom hook`, and `writing tests for your app.`
 
-- **class components**
-- **the component lifecycle**
-- **class component lifecycle methods,**
-- **custom hooks**, and
-- **React Testing Library .**
+This is an individual assessment. All work must be your own. All projects will be submitted to codegrade for automated review. You will also be given feedback by code reviewers the Monday after challenge submissions. For more information on the review process [click here.](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 
-## Create an app that will fetch data from an internal server using a `class component`,
+You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support by dropping a :wave: in your help channel when needed.
 
-## Display that data, using a `custom hook`, and `write tests for your app.`
+_Sprint challenges open at Midnight PST on Thursday and close at 5pm PST on Friday. You will receive feedback on what you have finished and submitted by 5pm when the submissions will be closed. No retakes will be accepted._
 
 ## Introduction
 
@@ -24,9 +18,9 @@ In this project, you will add class components to your a basic ecommerce site th
 
 In meeting the minimum viable product (MVP) specifications listed below, your project should look like the solution examples below:
 
-![plants](./public/plants.png)
+[Plant List Page](https://tk-assets.lambdaschool.com/88008802-846c-46bb-8cf8-11ace219e2bf_ScreenShot2020-04-30at12.39.22PM.png)
 
-![form](./public/form.png)
+[Successful Form Submission](https://tk-assets.lambdaschool.com/90ebefd4-ee0f-4b1c-884c-1336ce87441d_ScreenShot2020-04-30at12.40.56PM.png)
 
 You will also need to build the two tests in the `CheckoutForm.test.js` file and make sure they are testing what the test title says they are.
 
@@ -58,76 +52,9 @@ Your finished project must include all of the following requirements.
 
 #### Plant list
 
-```jsx
-import React, { Component } from "react";
-import axios from "axios";
-
-export default class PlantList extends Component {
-  // add state with a property called "plants" - initialize as an empty array
-  constructor() {
-    super();
-    this.state = {
-      plants: [],
-    };
-  }
-
-  // when the component mounts:
-  //   - fetch data from the server endpoint - http://localhost:3333/plants
-  //   - set the returned plants array to this.state.plants
-  componentDidMount() {
-    axios
-      .get("http://localhost:3333/plants")
-      .then((res) => {
-        this.setState({
-          plants: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-
-
-
-```
-
-![](./public/images/list-result.png)
-
 Display a list of the plants from the server. This should be done in the class component `PlantList`. **Unlike other projects, the local server used here can not be accessed through the browser. It is started automatically and without the need for starting a server.js file. Feel free to ignore any messages related to MSW or mock service workers. For this and the rest of your sprint challenges, test the functioning of the server directly through your axios calls.**
 
 - [ ] In the `PlantList` class component, fetch data from the server you now have running - the data can be fetched from `http://localhost:3333/plants.`
-
-```jsx
-
-import React, { Component } from "react";
-import axios from "axios";
-
-export default class PlantList extends Component {
-  // add state with a property called "plants" - initialize as an empty array
-  constructor() {
-    super();
-    this.state = {
-      plants: [],//Set the data to a state property called this.state.plants.
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:3333/plants")
-      .then((res) => {
-        this.setState({
-          plants: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-
-```
-
 - [ ] Set the data to a state property called `this.state.plants.`
 - [ ] The render function is already built and styled. Once the data is on the state, you will see the list of plants, and you will have the functionality to add a plant to the cart.
 
@@ -148,83 +75,6 @@ The form is working, but it is currently controlled by local stateful logic. We 
 - [ ] Fill out code necessary to test that that Checkout form renders without errors.
 - [ ] Fill out code necessary to test that when all form inputs are filled with valid data, a success message appears.
 - [ ] Make sure the tests are passing, and make sure you can cause the tests to fail purposefully, so that you know the tests are truly working.
-
-```sh
-|10:47:26|bryan@LAPTOP-9LGJ3JGS:[web-sprint-challenge-advanced-react] web-sprint-challenge-advanced-react_exitstatus:0[╗__________________________________________________________o>
-
-npm run build
-
-> web-sprint-challenge-advanced-react@0.1.0 build
-> react-scripts build
-
-Creating an optimized production build...
-Browserslist: caniuse-lite is outdated. Please run:
-npx browserslist@latest --update-db
-Compiled with warnings.
-
-./src/App.js
-  Line 1:17:   'useEffect' is defined but never used                                                                                       no-unused-vars
-  Line 3:8:    'axios' is defined but never used                                                                                           no-unused-vars
-  Line 30:26:  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
-
-./src/components/PlantList.js
-  Line 59:17:  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
-  Line 60:17:  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
-
-./src/components/CheckoutForm.js
-  Line 95:17:   'useState' is defined but never used                                                                                        no-unused-vars
-  Line 161:52:  Emojis should be wrapped in <span>, have role="img", and have an accessible description with aria-label or aria-labelledby  jsx-a11y/accessible-emoji
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-File sizes after gzip:
-
-  68.09 KB  build/static/js/2.b64a5d33.chunk.js
-  3.32 KB   build/static/js/main.a742e80a.chunk.js
-  1.1 KB    build/static/css/main.66d197e0.chunk.css
-  795 B     build/static/js/runtime-main.6a0e6603.js
-
-The project was built assuming it is hosted at /.
-You can control this with the homepage field in your package.json.
-
-The build folder is ready to be deployed.
-You may serve it with a static server:
-
-  npm install -g serve
-  serve -s build
-
-Find out more about deployment here:
- PASS  src/components/CheckoutForm.test.js (49.058s)
-  ✓ form header renders (55ms)
-  ✓ form shows success message on submit with form details (193ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
-Snapshots:   0 total
-Test Suites: 0 of 1 total
-Tests:       0 total
-Snapshots:   0 total
- PASS  src/components/CheckoutForm.test.js (42.763s)
-  ✓ form header renders (119ms)
-  ✓ form shows success message on submit with form details (135ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
-Snapshots:   0 total
- PASS  src/components/CheckoutForm.test.js (66.651s)
-  ✓ form header renders (173ms)
-  ✓ form shows success message on submit with form details (145ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
-Snapshots:   0 total
-Time:        83.499s
-Ran all test suites related to changed files.
-
-```
-
-
 
 **Notes:**
 
@@ -282,40 +132,20 @@ test("displays plants in cart", () => {
 
 ## Submission format
 
-- [x] Submit via Codegrade by commiting and pushing any new changes.
-- [x] Submit a pull-request to merge <firstName-lastName> branch into main. **Please don't merge your own pull request and make sure you are on your own repo**
-- [x] Check codegrade for automated feedback.
+- [ ] Submit via Codegrade by commiting and pushing any new changes.
+- [ ] Submit a pull-request to merge <firstName-lastName> branch into main. **Please don't merge your own pull request and make sure you are on your own repo**
+- [ ] Check codegrade for automated feedback.
+- [ ] Check codegrade on Monday following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
+- [ ] Any changes pushed to your <firstName-lastName> branch will resubmited to codegrade if pushed before the sprint challenge deadline. Changes after the deadline will not be reviewed.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
-# Interview Answers
+1. What are the main differences between a stateful and a functional component?
 
-### 1. What are the main differences between a stateful and a functional component?
+2. When does a componentWillMount function be called? What about a componentWillUpdate?
 
-- The difference between a stateful and nonState or functional component is that a stateless (functional component) does not maintain a remembered state value. It simple renders and is done. A stateful component remembers the value of a component and adjusts it to a new value as it's state is changed
+3. Define stateful logic.
 
-### 2. When does a componentWillMount function be called? What about a componentWillUpdate?
-
-- A componentWillMount is called after the constructor function call including super and initial state value.
-
-- componentDidMount is called after the component is mounted on the screen
-
-### 3. Define stateful logic.
-
-- Stateful Logic - is any code that used state to store and update the current state of being with differing values or states.
-
-### 4. What are the three step of creating a successful test? What is done in each phase?
-
-- Arrange - The stage where inputs and targets are set. Arrange sets set up the test cases
-
-- Act - Act on the behavior of the target
-
-- Assert - What are your expected outcomes. this is even defined by expect in the test code syntax.
-
----
-
----
-
-## RESULT:
+4. What are the three step of creating a successful test? What is done in each phase?
